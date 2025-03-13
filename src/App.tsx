@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-type Todo = {
+interface Todo {
   text: string;
   date: string;
-};
+}
 
 export default function TodoList() {
   const [todos, setTodos] = useState<Todo[]>(() => {
@@ -30,7 +30,7 @@ export default function TodoList() {
     } else {
       const newTodo: Todo = {
         text: input,
-        date: new Date().toLocaleString(), // Date & Time
+        date: new Date().toLocaleString(),
       };
       updatedTodos = [...todos, newTodo];
     }
@@ -49,10 +49,10 @@ export default function TodoList() {
   };
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100 p-6">
-      <div className="bg-white shadow-lg rounded-lg p-6 flex gap-6 w-full max-w-3xl">
-        {/* Left Side - Todo Input */}
-        <div className="flex flex-col gap-4 w-1/2">
+    <div className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 p-6">
+      <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row gap-6 w-full max-w-3xl">
+        {/* Left Section - Input */}
+        <div className="flex flex-col gap-4 w-full md:w-1/2">
           <h1 className="text-2xl font-bold text-center">Todo List</h1>
           <div className="flex gap-2">
             <input
@@ -72,8 +72,8 @@ export default function TodoList() {
           </div>
         </div>
 
-        {/* Right Side - Task List */}
-        <div className="w-1/2">
+        {/* Right Section - Task List */}
+        <div className="w-full md:w-1/2">
           <h1 className="font-semibold text-lg text-center mb-2">Tasks</h1>
           <div className="bg-gray-100 p-3 rounded-lg h-64 overflow-y-auto shadow-inner">
             {todos.length > 0 ? (
