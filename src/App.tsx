@@ -40,7 +40,17 @@ export default function TodoList() {
 
   const removeTodo = (index: number) => {
     setTodos((prevTodos) => prevTodos.filter((_, i) => i !== index));
+  
+    if (editIndex !== null) {
+      if (editIndex === index) {
+        setEditIndex(null);
+        setInput("");
+      } else if (editIndex > index) {
+        setEditIndex(editIndex - 1)
+      }
+    }
   };
+  
 
   const editTodo = (index: number) => {
     setInput(todos[index].text);
@@ -93,7 +103,7 @@ export default function TodoList() {
                         className="text-red-500"
                         onClick={() => removeTodo(index)}
                       >
-                        Delete
+                      Delete
                       </button>
                     </div>
                   </li>
