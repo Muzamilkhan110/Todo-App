@@ -51,7 +51,6 @@ export default function TodoList() {
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 p-6">
       <div className="bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row gap-6 w-full max-w-3xl">
-        {/* Left Section - Input */}
         <div className="flex flex-col gap-4 w-full md:w-1/2">
           <h1 className="text-2xl font-bold text-center">Todo List</h1>
           <div className="flex gap-2">
@@ -71,8 +70,6 @@ export default function TodoList() {
             </button>
           </div>
         </div>
-
-        {/* Right Section - Task List */}
         <div className="w-full md:w-1/2">
           <h1 className="font-semibold text-lg text-center mb-2">Tasks</h1>
           <div className="bg-gray-100 p-3 rounded-lg h-64 overflow-y-auto shadow-inner">
